@@ -41,5 +41,10 @@ NOTE: The commands must be executed in the project dir
 - `docker-compose exec app php artisan key:generate`
 - `docker-compose exec app php artisan config:cache`
 
+
+#### Step 4 —> Executing migrations (database tables)
+- `docker-compose exec app php artisan migrate`
+
+
 ...
 
