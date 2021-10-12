@@ -44,7 +44,7 @@ services:
     ports:
       - "3309:3306"
     environment:
-      MYSQL_DATABASE: db-siac-v1
+      MYSQL_DATABASE: db_siac_v1
       MYSQL_ROOT_PASSWORD: W3-4re_Start1nG
       SERVICE_TAGS: dev
       SERVICE_NAME: mysql
