@@ -17,8 +17,8 @@
 With **Docker** previously installed on your system, follow next steps (**Linux**):
 
 ##### Step 0 —> Configure a user with sudo privileges
- - `adduser alexisandres` (only in case of new user)
- - `usermod -aG sudo alexisandres`
+ - `sudo adduser alexisandres` (only in case of new user)
+ - `sudo usermod -aG sudo alexisandres`
 
 
 NOTE: The commands must be executed in the project dir
@@ -37,7 +37,7 @@ NOTE: The commands must be executed in the project dir
 - `docker-compose up -d`
 - To rebuild this image you must use `docker-compose build` or `docker-compose up --build`.
 
-- *docker-compose exec siac-app php artisan key:generate*
+- *docker-compose exec [service name] [command / instruction]*
 - `docker-compose exec app php artisan key:generate`
 - `docker-compose exec app php artisan config:cache`
 
@@ -46,5 +46,8 @@ NOTE: The commands must be executed in the project dir
 - `docker-compose exec app php artisan migrate`
 
 
-...
+#### Extra —> Accessing local database to check structure & data
+- `docker-compose exec db bash`
+- `mysql -u [user] -p`
 
+...

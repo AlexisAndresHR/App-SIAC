@@ -18,7 +18,7 @@ services:
       - ./:/var/www
       - ./php/local.ini:/usr/local/etc/php/conf.d/local.ini
     networks:
-      - app-siac-net
+      - app_siac_net
 
   #Nginx Service
   webserver:
@@ -33,7 +33,7 @@ services:
       - ./:/var/www
       - ./nginx/conf.d/:/etc/nginx/conf.d/
     networks:
-      - app-siac-net
+      - app_siac_net
 
   #MySQL Service
   db:
@@ -52,11 +52,11 @@ services:
       - dbdata:/var/lib/mysql/
       - ./mysql/my.cnf:/etc/mysql/my.cnf
     networks:
-      - app-siac-net
+      - app_siac_net
 
 #Docker Networks
 networks:
-  app-siac-net:
+  app_siac_net:
     driver: bridge
 
 #Volumes
