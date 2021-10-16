@@ -14,7 +14,7 @@
 
 ## Configure Docker-Laravel environment
 
-With **Docker** previously installed on your system, follow next steps (**Linux**):
+With **Docker** and **Docker Compose** previously installed on your system, follow next steps (**Linux systems**):
 
 ##### Step 0 —> Configure a user with sudo privileges
  - `sudo adduser alexisandres` (only in case of new user)
