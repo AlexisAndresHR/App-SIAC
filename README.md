@@ -51,3 +51,14 @@ NOTE: The commands must be executed in the project dir
 - `mysql -u [user] -p`
 
 ...
+#### Aditional util commands
+To run (start) and stop a container already mounted in your machine:  
+Start/run example:
+- `docker start siac_app`
+
+Stop example:
+- `docker stop siac_webserver`
+
+To install/update the code libraries (included in composer files):
+- `docker-compose exec app composer install`
+
