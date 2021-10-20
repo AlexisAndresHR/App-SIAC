@@ -12,7 +12,7 @@
 
             <!-- Form structure using Laravel Collective -->
             {!! Form::open(['url' => '/login']) !!}
-            <label for="email"> Correo de acceso: </label>
+            <label for="email"> Usuario: </label>
             <div class="input-group">
                 <!--<div class="input-group-prepend"></div>-->
                 <div class="input-group-text"> <i class="fas fa-at"></i> </div>
@@ -28,6 +28,15 @@
     
             {!! Form::submit('Ingresar', ['class' => 'btn btn-success']) !!}
             {!! Form::close() !!}
+
+            <!-- To link the new users register section -->
+            <div class="footer">
+                <p class="text-center"> ó </p>
+                <p class="text-center"> ¿Usuario nuevo? </p>
+                <a href="{{ url('/register') }}">
+                    <button class="btn btn-primary"> Registrarse </button>
+                </a>
+            </div>
         </div>
     </div>
 @endsection

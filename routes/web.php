@@ -18,5 +18,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// Auth Router
+// Auth router (sign in)
 Route::get('login', AuthController::class);
+
+// Register (sign up) router
+Route::get('register', [AuthController::class, 'showSignUp']);
+

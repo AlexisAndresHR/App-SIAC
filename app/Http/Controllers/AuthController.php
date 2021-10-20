@@ -14,6 +14,10 @@ class AuthController extends Controller
      * Main method, executed when controller is called through class
      */
     public function __invoke() {
-        return view('auth.login');// Calls the specified view
+        return view('auth.signin');// Calls the specified view
+    }
+
+    public function showSignUp() {
+        return view('auth.signup');
     }
 }

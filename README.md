@@ -51,7 +51,7 @@ NOTE: The commands must be executed in the project dir
 - `mysql -u [user] -p`
 
 ...
-#### Aditional util commands
+#### —> Additional util commands
 To run (start) and stop a container already mounted in your machine:  
 Start/run example:
 - `docker start siac_app`
