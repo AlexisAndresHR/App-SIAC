@@ -10,6 +10,26 @@
                 <h2> Bienvenid@ al SIAC </h2>
             </div>
 
+            <!-- Code block to show form validation errors to users on screen -->
+            @if (Session::has('message'))
+                <div class="container">
+                    <div class="alert alert-{{ Session::get('typealert') }}" style="display: none;">
+                        {{ Session::get('message') }}
+                        @if ($errors->any())
+                            <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                            </ul>
+                        @endif
+                        <script>
+                            $('.alert').slideDown();
+                            setTimeout(function(){ $('.alert').slideUp; }, 10000);
+                        </script>
+                    </div>
+                </div>
+            @endif
+
             <!-- Form structure using Laravel Collective -->
             {!! Form::open(['url' => '/login']) !!}
             <label for="email"> Usuario: </label>

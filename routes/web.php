@@ -19,8 +19,8 @@ Route::get('/', function () {
 });
 
 // Auth router (sign in)
-Route::get('login', AuthController::class);
+Route::get('login', AuthController::class)->name('login');
 
 // Register (sign up) router
-Route::get('register', [AuthController::class, 'showSignUp']);
-
+Route::get('register', [AuthController::class, 'showSignUp'])->name('register');
+Route::post('register', [AuthController::class, 'newSignUp'])->name('new-register');
