@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Validator, Hash;
+use Validator, Hash, Auth;
 
 use App\Models\Usuario;
 
@@ -12,6 +12,12 @@ use App\Models\Usuario;
  */
 class AuthController extends Controller
 {
+    public function __construct()
+    {
+        // Using middleware, restrict the methods access if the user is not authenticated
+        $this->middleware('guest')->except(['doLogout']);
+    }
+    
     /**
      * Main method, executed when controller is called through class
      */
@@ -59,7 +65,6 @@ class AuthController extends Controller
         //$request->validate($formValidRules);
         $formValidator = Validator::make($request->all(), $formValidRules, $validErrorMssgs);
         if ($formValidator->fails()):
-            $oldNum = $request->old('num_empleado');
             return back()->withErrors($formValidator)->with('message', "Error de llenado de datos:")->with('typealert', 'danger');
         else:
             $usuarioObj = new Usuario();
@@ -82,4 +87,38 @@ class AuthController extends Controller
             }
         endif;
     }
+
+    /**
+     * Login/Sign in & logout functions methods (both)
+     */
+    public function doSignIn(Request $loginRequest){
+        // Form validation parameters
+        $formValidRules = [
+            'email' => 'required | email',
+            'password' => 'required',
+        ];
+        $validErrorMssgs = [
+            'email.required' => "Debes colocar tu correo institucional",
+            'email.email' => "Por favor introduce una dirección de correo válida",
+            'password.required' => "Tu contraseña es necesaria para iniciar sesión",
+        ];
+
+        // Declares the data form validator
+        $formValidator = Validator::make($loginRequest->all(), $formValidRules, $validErrorMssgs);
+        if ($formValidator->fails()):
+            return back()->withErrors($formValidator)->with('message', "Credenciales de inicio faltantes:")->with('typealert', 'danger');
+        else:
+            if (Auth::attempt(['email' => e($loginRequest->email), 'password' => e($loginRequest->password)], true)){// 'true' parameter allows a durable ("long-time") user connection
+                return redirect('/');
+            }
+            else {
+                return back()->with('message', "Tu correo o contraseña son incorrectos")->with('typealert', 'danger');
+            }
+        endif;
+    }
+    public function doLogout(){// * Logout method
+        Auth::logout();
+        return redirect()->route('login');
+    }
+
 }

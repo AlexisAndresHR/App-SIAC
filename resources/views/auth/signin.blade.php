@@ -36,14 +36,14 @@
             <div class="input-group">
                 <!--<div class="input-group-prepend"></div>-->
                 <div class="input-group-text"> <i class="fas fa-at"></i> </div>
-                {!! Form::email('email', null, ['class' => 'form-control', 'placeholder' => "Correo institucional"]) !!}
+                {!! Form::email('email', null, ['class' => 'form-control', 'placeholder' => "Correo institucional", 'required']) !!}
             </div>
     
             <label for="password"> Contraseña: </label>
             <div class="input-group">
                 <!--<div class="input-group-prepend"></div>-->
                 <div class="input-group-text"> <i class="fas fa-key"></i> </div>
-                {!! Form::password('password', ['class' => 'form-control', 'placeholder' => "Contraseña"]) !!}
+                {!! Form::password('password', ['class' => 'form-control', 'placeholder' => "Contraseña", 'required']) !!}
             </div>
     
             {!! Form::submit('Ingresar', ['class' => 'btn btn-success']) !!}

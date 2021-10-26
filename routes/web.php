@@ -20,6 +20,8 @@ Route::get('/', function () {
 
 // Auth router (sign in)
 Route::get('login', AuthController::class)->name('login');
+Route::post('login', [AuthController::class, 'doSignIn'])->name('do-login');
+Route::get('logout', [AuthController::class, 'doLogout'])->name('do-logout');
 
 // Register (sign up) router
 Route::get('register', [AuthController::class, 'showSignUp'])->name('register');
