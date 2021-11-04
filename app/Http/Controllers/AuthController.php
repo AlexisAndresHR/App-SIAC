@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Validator, Hash, Auth;
 
 use App\Models\Usuario;
+use App\Models\RolUsuario;
 
 /**
  * -> Authentication functions (Sign in & Sign up) Controller
@@ -67,6 +68,7 @@ class AuthController extends Controller
         if ($formValidator->fails()):
             return back()->withErrors($formValidator)->with('message', "Error de llenado de datos:")->with('typealert', 'danger');
         else:
+            // Enter to the save register process...
             $usuarioObj = new Usuario();
             $usuarioObj->numero_empleado = e($request->num_empleado);
             $usuarioObj->puesto = e($request->puesto);
@@ -78,8 +80,25 @@ class AuthController extends Controller
 
             // Store the new user register in the DB
             if ($usuarioObj->save()) {
-                return redirect()->route('login')->with('message', "Tu usuario ha sido registrado, ahora inicia sesión.")
-                    ->with('typealert', 'success');
+                // Makes a new register to associate the new user with a corresponding role
+                $rolUsuarioObj = new RolUsuario();
+                $newUserId = Usuario::select('id')->where('email', e($request->new_email))->first();// Eloquent query to get the new user id
+                $newUserId = $newUserId['id'];// Obtains the value from the object returned in query
+                if (strtolower(e($request->puesto)) == 'secretario' || strtolower(e($request->puesto)) == 'secretaria') {
+                    $rolUsuarioObj->rol_id = 2;
+                    $rolUsuarioObj->usuario_id = $newUserId;
+                    if (!$rolUsuarioObj->save())
+                        return redirect()->route('register')->with('message', "Error al registrar Rol en el sistema. Favor de comunicarse con el administrador.")->with('typealert', 'danger');
+                }
+                else {
+                    $rolUsuarioObj->rol_id = 3;
+                    $rolUsuarioObj->usuario_id = $newUserId;
+                    if (!$rolUsuarioObj->save())
+                        return redirect()->route('register')->with('message', "Error al registrar Rol en el sistema. Favor de comunicarse con el administrador.")->with('typealert', 'danger');
+                }
+
+                // Everything good, return login page !
+                return redirect()->route('login')->with('message', "Tu usuario ha sido registrado, ahora inicia sesión.")->with('typealert', 'success');
             }
             else {
                 return redirect()->route('register')->with('message', "Error en registro de Usuario. Favor de comunicarse con el administrador.")
