@@ -1,0 +1,74 @@
+body {
+    background-color: #f6f6f6;
+    font-family: 'Lato', sans-serif;
+    font-size: 1rem;
+}
+
+.wrapper {
+    min-height: 100vh;
+    overflow: hidden;
+}
+.wrapper .col1 {
+    float: left;
+    position: relative;
+    z-index: 999;
+    width: 20%;
+}
+.wrapper .col2 {
+    float: left;
+    width: 80%;
+}
+
+
+.sidebar {
+    min-height: 100vh;
+    background-color: #e82888;
+}
+
+/* Sidebar header props, user and org info */
+.sidebar .section-top {
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    background-color: #e82888;
+}
+.sidebar .logo {
+    display: block;
+    margin: 0px auto;
+    padding-top: 24px;
+    width: 80%;
+}
+.sidebar .user {
+    color: #fff !important;
+    padding: 1rem;
+}
+.sidebar .user .subtitle {
+    text-align: center;
+}
+.sidebar .user a {
+    color: #fff;
+    text-decoration: none;
+}
+
+/* List menu props (items-sections) */
+.sidebar .main {
+    display: block;
+    padding-top: 9px;
+}
+.sidebar .main ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+.sidebar .main a {
+    display: block;
+    padding: 12px 21px;
+    text-decoration: none;
+    color: #fff !important;
+}
+.sidebar .main a:hover {
+    background-color: #70B52F;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    color: #fff !important;
+}
+.sidebar .main i {
+    margin-right: 10px;
+}

@@ -18,7 +18,7 @@ class PanelController extends Controller
      * Method to show the main Admin view (Dashboard)
      */
     public function showPanel() {
-        return "You're in the admin Panel page.";
+        return view('admin.dashboard');
     }
 
 }
