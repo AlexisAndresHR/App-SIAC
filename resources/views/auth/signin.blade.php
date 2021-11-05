@@ -7,7 +7,8 @@
     <div class="box">
         <div class="box-login shadow">
             <div class="h2-cont">
-                <h2> Bienvenid@ al SIAC </h2>
+                <h3> Bienvenid@ al SIAC </h3>
+                <img src="{{ url('static/images/org_logo.png') }}" class="img-fluid">
             </div>
 
             <!-- Code block to show form validation errors to users on screen -->
@@ -46,15 +47,15 @@
                 {!! Form::password('password', ['class' => 'form-control', 'placeholder' => "Contraseña", 'required']) !!}
             </div>
     
-            {!! Form::submit('Ingresar', ['class' => 'btn btn-success']) !!}
+            {!! Form::submit('Ingresa', ['class' => 'btn btn-success']) !!}
             {!! Form::close() !!}
 
             <!-- To link the new users register section -->
             <div class="footer">
                 <p class="text-center"> ó </p>
-                <p class="text-center"> ¿Usuario nuevo? </p>
+                <p class="text-center"> ¿Eres usuario nuevo? </p>
                 <a href="{{ url('/register') }}">
-                    <button class="btn btn-primary"> Registrarse </button>
+                    <button class="btn btn-primary"> Regístrate </button>
                 </a>
             </div>
         </div>

@@ -6,7 +6,7 @@
     <div class="box">
         <div class="box-register shadow">
             <div class="h2-cont">
-                <h2> Regístrate en el SIAC </h2>
+                <h3> Regístrate en el SIAC </h3>
             </div>
 
             <!-- Code block to show form validation errors to users on screen -->
@@ -72,7 +72,7 @@
                 {!! Form::password('repeat_password', ['class' => 'form-control', 'placeholder' => "Repetir contraseña", 'required']) !!}
             </div>
     
-            {!! Form::submit('Registrarse', ['class' => 'btn btn-primary btn-register']) !!}
+            {!! Form::submit('Regístrate', ['class' => 'btn btn-primary btn-register']) !!}
             
             {!! Form::close() !!}
         </div>

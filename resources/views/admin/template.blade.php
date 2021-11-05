@@ -19,12 +19,49 @@
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
     <!-- Font Awesome icons kit -->
     <script src="https://kit.fontawesome.com/05e396472b.js" crossorigin="anonymous"></script>
+
+    <!-- JQuery library CDN -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 <body>
 
     <div class="wrapper">
         <div class="col1"> @include('admin.sidebar') </div>
-        <div class="col2"></div>
+        
+        <!-- Section to put the selected section content -->
+        <div class="col2">
+
+            <!-- Code block to show form validation errors to users on screen -->
+            @if (Session::has('message'))
+                <div class="container">
+                    <div class="alert alert-{{ Session::get('typealert') }}" style="display: none;">
+                        {{ Session::get('message') }}
+                        @if ($errors->any())
+                            <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                            </ul>
+                        @endif
+                        <script>
+                            $('.alert').slideDown();
+                            setTimeout(function(){ $('.alert').slideUp; }, 10000);
+                        </script>
+                    </div>
+                </div>
+            @endif
+
+            <div class="page">
+                <div class="container-fluid">
+
+                    <!-- Will be filled with selected section (menu) data & options -->
+                    @section('content')
+                    @show
+
+                </div>
+            </div>
+
+        </div>
     </div>
     
 </body>

@@ -11,7 +11,12 @@
     <link rel="stylesheet" href="{{ url('/static/css/auth.css') }}">
 
     <!-- JQuery library CDN -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <!-- Google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
     <!-- Font Awesome icons kit -->
     <script src="https://kit.fontawesome.com/05e396472b.js" crossorigin="anonymous"></script>
 </head>

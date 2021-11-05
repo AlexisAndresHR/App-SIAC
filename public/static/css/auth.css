@@ -1,5 +1,7 @@
 body {
     background-color: #f6f6f6;
+    font-family: 'Lato', sans-serif;
+    font-size: 1rem;
 }
 
 .box {
@@ -21,7 +23,10 @@ body {
 .box-login .h2-cont {
     text-align: center;
     margin-top: 16px;
-    margin-bottom: 32px;
+    margin-bottom: 16px;
+}
+.box-login .h2-cont img {
+    width: 50%;
 }
 
 .box-login .input-group {
@@ -32,6 +37,8 @@ body {
     width: 100%;
     margin-top: 16px;
     margin-bottom: 16px;
+    background-color: #e82888;
+    border-color: #e82888;
 }
 
 .box-login .text-center {
@@ -40,10 +47,12 @@ body {
 
 .box-login .btn-primary {
     width: 100%;
-    margin-bottom: 16px;
+    background-color: #70B52F;
+    border-color: #70B52F;
 }
 
 
+/* Style props to register/sign up interface */
 .box-register {
     background-color: #fff;
     border: 1px solid #d6d6d6;
@@ -64,6 +73,8 @@ body {
 .box-register .btn-register {
     width: 100%;
     margin-top: 32px;
+    background-color: #70B52F;
+    border-color: #70B52F;
 }
 
 .box-register .lb-mleft {

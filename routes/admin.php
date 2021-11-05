@@ -6,6 +6,6 @@ use App\Http\Controllers\Admin\PanelController;
 
 Route::prefix('admin')->group(function(){
 
-    Route::get('/', [PanelController::class, 'showPanel'])->name('panel');
+    Route::get('/', [PanelController::class, 'showPanel'])->name('admin-panel');
 
 });

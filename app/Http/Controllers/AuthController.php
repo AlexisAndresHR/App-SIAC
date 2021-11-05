@@ -128,14 +128,28 @@ class AuthController extends Controller
             return back()->withErrors($formValidator)->with('message', "Credenciales de inicio faltantes:")->with('typealert', 'danger');
         else:
             if (Auth::attempt(['email' => e($loginRequest->email), 'password' => e($loginRequest->password)], true)){// 'true' parameter allows a durable ("long-time") user connection
-                return redirect('/');
+                // Code to redirect users based on their roles
+                $userId = Usuario::select('id')->where('email', e($loginRequest->email))->first();// Obtains the registered user ID from DB
+                $userId = $userId['id'];
+                $userRole = RolUsuario::select('rol_id')->where('usuario_id', $userId)->first();// Make an Eloquent query to get the user role
+                $userRole = $userRole['rol_id'];
+
+                if ($userRole == '1'){
+                    return redirect('admin');
+                }
+                else {
+                    return redirect('/');
+                }
             }
             else {
                 return back()->with('message', "Tu correo o contraseña son incorrectos")->with('typealert', 'danger');
             }
         endif;
     }
-    public function doLogout(){// * Logout method
+    /**
+     * Logout / sign out method
+     */
+    public function doLogout(){
         Auth::logout();
         return redirect()->route('login');
     }
