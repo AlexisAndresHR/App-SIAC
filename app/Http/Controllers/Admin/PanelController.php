@@ -21,4 +21,18 @@ class PanelController extends Controller
         return view('admin.dashboard');
     }
 
+    /**
+     * Function to show the content and actions of submenu 'Solicitudes'
+     */
+    public function getSolicitudesActions() {
+        return view('menu.solicitudes.page');
+    }
+
+    /**
+     * Function to show the content and actions of submenu 'Secretarías'
+     */
+    public function getSecretariasActions() {
+        return view('menu.secretarias.page');
+    }
+
 }

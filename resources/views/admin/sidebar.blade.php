@@ -20,13 +20,13 @@
     <div class="main">
         <ul>
             <li>
-                <a href="{{ url('admin') }}"> <i class="fas fa-home"></i> Inicio </a>
+                <a href="{{ route('admin-panel') }}"> <i class="fas fa-home"></i> Inicio </a>
             </li>
             <li>
-                <a href="{{ url('admin/solicitudes') }}"> <i class="fas fa-file-alt"></i> Solicitudes </a>
+                <a href="{{ route('get-solicitudes') }}"> <i class="fas fa-file-alt"></i> Solicitudes </a>
             </li>
             <li>
-                <a href="{{ url('admin/secretarias') }}"> <i class="fas fa-building"></i> Secretarías </a>
+                <a href="{{ route('get-secretarias') }}"> <i class="fas fa-building"></i> Secretarías </a>
             </li>
             <li>
                 <a href="{{ url('admin/') }}"> ... </a>
