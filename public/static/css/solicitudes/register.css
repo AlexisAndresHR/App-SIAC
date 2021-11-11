@@ -1,0 +1,14 @@
+label {
+    margin-top: 10px;
+}
+
+.center-item {
+    text-align: center;
+}
+
+.btn-register-sol {
+    background-color: #70B52F;
+    border-color: #70B52F;
+    margin: 22px 0px;
+    width: 40%;
+}

@@ -8,4 +8,14 @@
     Lorem ipsum dolor sit amet consectetur adipisicing elit. Id adipisci reprehenderit odit similique ipsam eum mollitia, officiis soluta optio aut a quo commodi magnam nam! Quibusdam aliquam adipisci dolor animi!
     <br>
     Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptas facilis illo minus at harum explicabo doloribus quod laudantium minima blanditiis sequi eveniet accusantium, non quis nulla ipsa quae molestiae tenetur?
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <a href="{{ route('new-solicitud') }}">
+        <button class="btn btn-primary"> Nueva Solicitud </button>
+    </a>
+
+    <br>
 @endsection
