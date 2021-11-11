@@ -42,8 +42,11 @@ NOTE: The commands must be executed in the project dir
 - `docker-compose exec app php artisan config:cache`
 
 
-#### Step 4 —> Executing migrations (database tables)
+#### Step 4 —> Executing migrations (database tables) & static registers
 - `docker-compose exec app php artisan migrate`
+- `docker-compose exec app php artisan db:seed`
+Or do both actions using the command:
+- `docker-compose exec app php artisan migrate:fresh --seed`
 
 
 #### Extra —> Accessing local database to check structure & data
