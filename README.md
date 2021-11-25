@@ -48,10 +48,14 @@ NOTE: The commands must be executed in the project dir
 Or do both actions using the command:
 - `docker-compose exec app php artisan migrate:fresh --seed`
 
+- Note: To avoid problems with special chars like letters with accent mark, the UTF-8 charset must be configured in DB:
+- `ALTER DATABASE db_siac_v1 CHARACTER SET utf8 COLLATE utf8_general_ci;`
+
 
 #### Extra —> Accessing local database to check structure & data
 - `docker-compose exec db bash`
 - `mysql -u [user] -p`
+
 
 ...
 #### —> Additional util commands

@@ -7,6 +7,7 @@ use Validator, Hash, Auth;
 
 use App\Models\Usuario;
 use App\Models\RolUsuario;
+use App\Models\Dependencia;
 
 /**
  * -> Authentication functions (Sign in & Sign up) Controller
@@ -30,7 +31,10 @@ class AuthController extends Controller
      * Function to show the Sign Up interface
      */
     public function showSignUp() {
-        return view('auth.signup');
+        // Code for bring the 'Dependencias' registers and put it on select input
+        $dependenciesItems = Dependencia::pluck('nombre', 'id');
+
+        return view('auth.signup', compact('dependenciesItems'));
     }
 
     /**
@@ -68,6 +72,10 @@ class AuthController extends Controller
         if ($formValidator->fails()):
             return back()->withErrors($formValidator)->with('message', "Error de llenado de datos:")->with('typealert', 'danger');
         else:
+            // Validates if the new user email is or not an institutional mail
+            if (!str_contains(e($request->new_email), "tulancingo.gob.mx"))
+                return back()->with('message', "Es necesario usar el correo institucional para registrarse.")->with('typealert', 'danger');
+
             // Enter to the save register process...
             $usuarioObj = new Usuario();
             $usuarioObj->numero_empleado = e($request->num_empleado);

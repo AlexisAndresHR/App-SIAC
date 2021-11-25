@@ -36,7 +36,7 @@
             <label for="puesto" class="inline-label lb-mleft"> Puesto: </label>
             <div class="input-group">
                 <div class="input-group-text"> <i class="fas fa-hashtag"></i> </div>
-                {!! Form::text('num_empleado', null, ['class' => 'form-control inline-input', 'placeholder' => '0000', 'required']) !!}
+                {!! Form::text('num_empleado', null, ['class' => 'form-control inline-input', 'placeholder' => '0000', 'maxlength' => 4, 'required']) !!}
 
                 <div class="input-group-text"> <i class="fas fa-user"></i> </div>
                 {!! Form::text('puesto', null, ['class' => 'form-control', 'placeholder' => 'Puesto', 'required']) !!}
@@ -53,7 +53,7 @@
             <label for="dependencia"> Dependencia: </label>
             <div class="input-group">
                 <div class="input-group-text"> <i class="fas fa-building"></i> </div>
-                {!! Form::select('dependencia', ['0' => 'Selecciona tu dependencia', '1' => 'Innovación', '2' => 'Ecología'], '0', ['class' => 'form-control', 'required']) !!}
+                {!! Form::select('dependencia', $dependenciesItems, '0', ['class' => 'form-control', 'required']) !!}
             </div>
 
             <label for="new_email"> Correo electrónico: </label>

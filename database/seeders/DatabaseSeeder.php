@@ -16,5 +16,7 @@ class DatabaseSeeder extends Seeder
         // \App\Models\User::factory(10)->create();
 
         $this->call(RolSeeder::class);// Calls the Rol Seeder to use it
+        $this->call(SecretariaSeeder::class);// Calls the Secretaria Seeder to be able to execute it
+        $this->call(DependenciaSeeder::class);// Calls the Dependencia Seeder to be able to execute it
     }
 }
