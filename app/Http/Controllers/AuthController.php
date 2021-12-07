@@ -142,12 +142,15 @@ class AuthController extends Controller
                 $userRole = RolUsuario::select('rol_id')->where('usuario_id', $userId)->first();// Make an Eloquent query to get the user role
                 $userRole = $userRole['rol_id'];
 
-                if ($userRole == '1'){
+                // Redirection based on type of role
+                if ($userRole == '1')
                     return redirect('admin');
-                }
-                else {
+                elseif ($userRole == '2')
+                    return redirect('secretary');
+                elseif ($userRole == '3')
+                    return redirect('operating');
+                else 
                     return redirect('/');
-                }
             }
             else {
                 return back()->with('message', "Tu correo o contraseña son incorrectos")->with('typealert', 'danger');
