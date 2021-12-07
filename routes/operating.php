@@ -10,7 +10,7 @@ Route::prefix('operating')->group(function(){
 
 });
 
-/*
+
 // Routes group for 'Solicitudes' submenu actions
 Route::prefix('solicitudes')->group(function(){
 
@@ -18,11 +18,3 @@ Route::prefix('solicitudes')->group(function(){
     Route::get('/new', [PanelController::class, 'newSolicitud'])->name('new-solicitud');
 
 });
-
-// Routes group for 'Secretarías' submenu actions
-Route::prefix('secretarias')->group(function(){
-
-    Route::get('/', [PanelController::class, 'getSecretariasActions'])->name('get-secretarias');
-
-});
-*/

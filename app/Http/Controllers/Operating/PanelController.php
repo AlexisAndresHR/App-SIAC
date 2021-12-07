@@ -18,8 +18,22 @@ class PanelController extends Controller
      * Method to show the main Secretary view (Dashboard)
      */
     public function showPanel() {
-        //return view('operating.dashboard');
-        return "... We are in the Operating panel section.";
+        return view('operating.page');
+    }
+
+
+    /**
+     * Function to show the content and actions of submenu 'Solicitudes'
+     */
+    public function getSolicitudesActions() {
+        return view('menu.solicitudes.page');
+    }
+
+    /**
+     * To register a new Solicitud
+     */
+    public function newSolicitud() {
+        return view('menu.solicitudes.register');
     }
 
 }
