@@ -1,5 +1,5 @@
-@extends('admin.template')
-@section('pgtitle', "Solicitudes")
+@extends('dashboard.template')
+@section('pg-title', "Solicitudes")
 
 @section('content')
     <h2> Solicitudes... </h2>

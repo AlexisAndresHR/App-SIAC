@@ -48,19 +48,24 @@ class RouteServiceProvider extends ServiceProvider
                 ->group(base_path('routes/web.php'));
             
             // Adds the Admin routes file
-            Route::middleware('web')
+            /*Route::middleware('web')
                 ->namespace($this->namespace)
-                ->group(base_path('routes/admin.php'));
+                ->group(base_path('routes/admin.php'));*/
             
             // Loads the Secretary user role routes file
-            Route::middleware('web')
+            /*Route::middleware('web')
                 ->namespace($this->namespace)
-                ->group(base_path('routes/secretary.php'));
+                ->group(base_path('routes/secretary.php'));*/
             
             // Loads the Operating user role routes file
+            /*Route::middleware('web')
+                ->namespace($this->namespace)
+                ->group(base_path('routes/operating.php'));*/
+            
+            // Loads the role based routes file
             Route::middleware('web')
                 ->namespace($this->namespace)
-                ->group(base_path('routes/operating.php'));
+                ->group(base_path('routes/roleroutes.php'));
         });
     }
 

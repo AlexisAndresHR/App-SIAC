@@ -1,5 +1,5 @@
-@extends('admin.template')
-@section('pgtitle', "Nueva Solicitud")
+@extends('dashboard.template')
+@section('pg-title', "Nueva Solicitud")
 @section('extra_style_sheet')
     <link rel="stylesheet" href="{{ url('/static/css/solicitudes/register.css') }}">
 @endsection

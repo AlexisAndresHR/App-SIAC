@@ -6,15 +6,15 @@ use App\Http\Controllers\Operating\PanelController;
 
 Route::prefix('operating')->group(function(){
 
-    Route::get('/', [PanelController::class, 'showPanel'])->name('operating-panel');
-
-});
+    Route::get('/', [PanelController::class, 'showPanel'])->name('operating.panel');
 
 
-// Routes group for 'Solicitudes' submenu actions
-Route::prefix('solicitudes')->group(function(){
+    // Routes group for 'Solicitudes' submenu actions
+    Route::prefix('solicitudes')->group(function(){
 
-    Route::get('/', [PanelController::class, 'getSolicitudesActions'])->name('get-solicitudes');
-    Route::get('/new', [PanelController::class, 'newSolicitud'])->name('new-solicitud');
+        Route::get('/', [PanelController::class, 'getSolicitudesActions'])->name('get.solicitudes.op');
+        Route::get('/new', [PanelController::class, 'newSolicitud'])->name('new.solicitud.op');
+
+    });
 
 });
